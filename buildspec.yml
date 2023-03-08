@@ -10,12 +10,12 @@ phases:
     pre_build:
         commands:
             - echo Restore started on `date`
-            - dotnet restore ./${PROJECT}/${PROJECT}.csproj
+            - dotnet restore
       
     build:
         commands:
             - echo Build started on `date`
-            - dotnet build -c Release ./${PROJECT}/${PROJECT}.csproj
+            - dotnet build -c Release
             - dotnet test -c Release --logger trx --results-directory ./testresults
       
     post_build:
