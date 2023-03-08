@@ -1,5 +1,5 @@
 ﻿using Entity;
-using PetshopAPI.Models.Dtos;
+using Entity.Dtos.Profissional;
 
 namespace Service.Interfaces
 {

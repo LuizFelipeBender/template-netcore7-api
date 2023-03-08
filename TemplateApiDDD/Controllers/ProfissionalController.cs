@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
-using PetshopAPI.Models.Dtos;
-using PetshopAPI.Models.Entities;
-using PetshopAPI.Repository.Interfaces;
+using Entity;
+using Entity.Dtos.Profissional;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Service.Interfaces;
 
 namespace PetshopAPI.Controllers
 {

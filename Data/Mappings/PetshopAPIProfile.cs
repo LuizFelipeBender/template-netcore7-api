@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Entity;
+using Entity.Dtos.Consulta;
+using Entity.Dtos.Dono;
+using Entity.Dtos.Pet;
+using Entity.Dtos.Profissional;
+using Entity.Dtos.TipoAtendimento;
 using PetshopAPI.Models.Dtos;
-using PetshopAPI.Models.Entities;
-using PetShopApi.Models.Dtos;
-using System.Linq;
 
 namespace DataAccess.Mappings
 {

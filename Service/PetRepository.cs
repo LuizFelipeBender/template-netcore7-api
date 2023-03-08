@@ -1,8 +1,9 @@
-﻿using PetshopAPI.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Service;
 using Service.Interfaces;
 using Data;
+using Entity.Dtos.Pet;
+using Entity;
 
 namespace PetshopAPI.Repository
 {

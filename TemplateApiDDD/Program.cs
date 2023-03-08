@@ -1,25 +1,35 @@
 using Data;
 using Microsoft.EntityFrameworkCore;
+using PetshopAPI.Repository;
+using PetShopApi.Repository;
 using Service;
+using Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews()
-                    .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+builder.Services.AddControllersWithViews()
+        .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<Contextdb>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddScoped<Contextdb, Contextdb>();
 builder.Services.AddTransient<TemplateService, TemplateService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IBaseRepository, BaseRepository>();
+builder.Services.AddScoped<IDonoRepository, DonoRepository>();
+builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddScoped<IProfissionalRepository, ProfissionalRepository>();
+builder.Services.AddScoped<ITipoAtendimentoRepository, TipoAtendimentoRepository>();
+builder.Services.AddScoped<IConsultaRepository, ConsultaRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<Contextdb>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddControllers();
 
 

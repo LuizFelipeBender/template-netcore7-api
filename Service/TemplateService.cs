@@ -15,19 +15,19 @@ namespace Service
 
         public async Task<IEnumerable<Template>> GetAllTemplate()
         {
-            return await context.Template.ToListAsync();
+            return await context.Templates.ToListAsync();
         }
 
         //Get/{id}
         public async Task<Template> GetByIdTemplate(int? id)
         {
-            return await context.Template.FindAsync(id);
+            return await context.Templates.FindAsync(id);
         }
 
         //Post
         public async Task<Template> PostTemplate(Template data)
         {
-            context.Template.Add(data);
+            context.Templates.Add(data);
             await context.SaveChangesAsync();
             return data;
         }
@@ -43,7 +43,7 @@ namespace Service
         //Delete
         public async Task<Template> DeleteTemplate(int? id)
         {
-            var data = await context.Template.FindAsync(id);
+            var data = await context.Templates.FindAsync(id);
             context.Remove(data);
             await context.SaveChangesAsync();
             return data;

@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+using Entity;
+using Entity.Dtos.Consulta;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using PetshopAPI.Models.Dtos;
-using PetshopAPI.Models.Entities;
-using PetShopApi.Models.Dtos;
-using PetShopApi.Repository;
+using Service.Interfaces;
 
 namespace PetShopApi.Controllers
 {

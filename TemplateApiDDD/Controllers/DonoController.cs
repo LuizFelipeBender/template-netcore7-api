@@ -1,16 +1,10 @@
 ﻿using AutoMapper;
-using PetshopAPI.Models.Dtos;
-using PetshopAPI.Models.Entities;
-using PetshopAPI.Repository.Interfaces;
+using Entity.Dtos.Dono;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using Service.Interfaces;
 
 namespace PetshopAPI.Controllers
-{   
+{
     [ApiController]
     [Route("api/[controller]")]
     public class DonoController : ControllerBase
@@ -51,7 +45,7 @@ namespace PetshopAPI.Controllers
         {
             if (Dono == null) return BadRequest("Dados Inválidos");
 
-            var DonoAdicionar = _mapper.Map<Dono>(Dono);
+            var DonoAdicionar = _mapper.Map<Entity.Dono>(Dono);
 
             _repository.Add(DonoAdicionar);
 
