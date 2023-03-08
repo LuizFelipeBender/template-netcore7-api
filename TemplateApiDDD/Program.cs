@@ -16,8 +16,13 @@ builder.Services.AddControllersWithViews()
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<Contextdb>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+// builder.Services.AddDbContext<Contextdb>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<Contextdb>(options =>
+ options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
+ x => x.MigrationsAssembly("WebApplication1.Migrations")));
+
 builder.Services.AddScoped<Contextdb, Contextdb>();
 builder.Services.AddTransient<TemplateService, TemplateService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
