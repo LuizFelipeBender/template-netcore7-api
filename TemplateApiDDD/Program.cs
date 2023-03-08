@@ -21,10 +21,9 @@ builder.Services.AddControllers();
 string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<Contextdb>(options =>
  options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
- x => x.MigrationsAssembly("WebApplication1.Migrations")));
+ x => x.MigrationsAssembly("TemplateApiDDD")));
 
 builder.Services.AddScoped<Contextdb, Contextdb>();
-builder.Services.AddTransient<TemplateService, TemplateService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IDonoRepository, DonoRepository>();
