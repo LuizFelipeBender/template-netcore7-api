@@ -1,5 +1,6 @@
 using Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using PetshopAPI.Repository;
 using PetShopApi.Repository;
 using Service;
@@ -37,24 +38,32 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Template Api", Version = "v1" });
+            });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
-{
 
-app.UseSwagger();
-app.UseSwaggerUI(options =>
-{
-options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-options.RoutePrefix = "swagger";
-});
-}
+          app.UseCors("CorsPolicy");
 
 
+            // app.UseMvc();
 
+            // app.UseResponseCompression();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Template API - V1");
+                x.RoutePrefix = string.Empty;
+            });
 
 app.UseAuthorization();
 
