@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:16455",
+      "applicationUrl": "http://Vamola-env.eba-evcgzmtq.us-east-1.elasticbeanstalk.com:16455",
       "sslPort": 44333
     }
   },
@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5007",
+      "applicationUrl": "http://Vamola-env.eba-evcgzmtq.us-east-1.elasticbeanstalk.com:5007",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -24,7 +24,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7188;http://localhost:5007",
+      "applicationUrl": "https://Vamola-env.eba-evcgzmtq.us-east-1.elasticbeanstalk.com:7188;http://Vamola-env.eba-evcgzmtq.us-east-1.elasticbeanstalk.com:5007",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
